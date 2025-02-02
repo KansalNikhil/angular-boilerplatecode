@@ -17,7 +17,9 @@ export class HeaderComponent {
 
   toggleNav() {
     const sidenav = document.getElementById('sidenav');
+    const sidebartbn = document.getElementById('sidebarbtn');
     // console.log(sidenav);
     sidenav?.classList.toggle('open');
+    sidebartbn?.classList.toggle('open');
   }
 }
