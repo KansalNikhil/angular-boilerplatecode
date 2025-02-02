@@ -1,0 +1,71 @@
+.login-component{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    max-height: 100vh;
+    width: 25vw;
+    min-width: 275px;
+    max-width: 400px;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.login-card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: white !important;
+}
+
+.login-card {
+    max-width: 400px;
+  }
+  
+.login-header-image {
+    background-image: url('./../../../public/images/favicon.ico');
+    background-size: cover;
+    // font-size: xx-large;
+    // color: red;
+    // font-weight: 900;
+    // font-style: normal;
+    // text-align: center; 
+    // margin-bottom: 1vh;   
+}
+
+// .visibility {
+//     background-image: url('./../../../public/images/visibility_24dp_000000_FILL0_wght400_GRAD0_opsz24.png');
+//     background-size: cover;
+//     width:24px;
+//     height: 24px; 
+// }
+
+// .visibility_off {
+//     background-image: url('./../../../public/images/visibility_off_24dp_000000_FILL0_wght400_GRAD0_opsz24.png');
+//     background-size: cover;
+//     width:24px;
+//     height: 24px; 
+// }
+
+.loginbtn{
+    background-image: url('./../../../public/images/login_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png');
+    background-size: cover;
+    width:24px;
+    height: 24px;
+}

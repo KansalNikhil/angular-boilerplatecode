@@ -1,0 +1,50 @@
+<div class="sidenav-component">
+    <mat-card class="sidenav-card" appearance="outlined">
+        <mat-card-header class="sidenav-card-header">
+            <div mat-card-avatar class="sidenav-header-image"></div>
+            <mat-card-subtitle style="font-size:medium;text-align: center;margin-bottom: 1vh;">{{appTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <mat-card-content>                
+        </mat-card-content> -->
+    </mat-card>
+
+    <p style="margin: 5px;">MENU</p>
+    <nav class="navlist">
+        <a 
+            mat-fab 
+            extended 
+            class="navbtns" 
+            routerLink="/portal" 
+            routerLinkActive="active-link"
+            ariaCurrentWhenActive="page"
+            protected-label-text-size="large"
+            >
+                <div class="homeicon"></div>
+                Dashboard
+        </a>
+
+        <a 
+            mat-fab 
+            extended 
+            class="navbtns" 
+            routerLink="profile" 
+            routerLinkActive="active-link"
+            ariaCurrentWhenActive="page"
+            protected-label-text-size="large"
+            >
+                <div class="usericon"></div>
+                Profile
+        </a>
+
+        <button 
+            mat-fab 
+            extended 
+            class="navbtns"
+            (click)="logout()" 
+            >
+                <div class="logouticon"></div>
+                Log Out
+    </button>
+    </nav>
+</div>
+

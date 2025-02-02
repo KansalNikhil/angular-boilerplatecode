@@ -1,0 +1,56 @@
+@use '../../../styles.scss' as *;
+
+.sidenav-card {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.sidenav-component{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px !important;
+}
+
+.sidenav-card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% !important;
+}
+  
+.sidenav-header-image {
+    // background-image: url('./../../../public/images/favicon.ico');
+    background-image: url('./../../../../public/images/favicon.ico');
+    background-size: cover;
+    margin: 2% !important;
+    // font-size: xx-large;
+    // color: red;
+    // font-weight: 900;
+    // font-style: normal;
+    // text-align: center; 
+    // margin-bottom: 1vh;   
+}
+
+.navbtns{
+    width: 100% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 30px;
+    margin-bottom: 10px !important;
+    background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.2));
+    background-color: $base-color;
+    color:white;
+}
+
+.navlist{
+    width: 100%;
+}
+
+.active-link {
+    background-color: #ff9800 !important; /* Change to any color */
+    color: white !important;
+    font-weight: bold;
+}

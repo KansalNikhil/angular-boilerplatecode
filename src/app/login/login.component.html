@@ -1,0 +1,91 @@
+<div class="login-component">
+    <mat-card class="login-card" appearance="outlined">
+        <mat-card-header class="login-card-header">
+            <div mat-card-avatar class="login-header-image"></div>
+            <div style="font-size:large;margin-bottom: 1vh;">{{page}}</div>
+            <!-- <mat-card-title class="example-header-image">BSES</mat-card-title> -->
+            <mat-card-subtitle style="font-size: x-large;text-align: center;margin-bottom: 1vh;">{{appTitle}}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            @if(page == "LOGIN") {
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field style="width: 100%;background-color: white;">
+                      <mat-label>Email</mat-label>
+                      <input 
+                      type="email" 
+                      name="userid"
+                      matInput 
+                      formControlName="userid" 
+                      [formControl]="emailFormControl" 
+                      [errorStateMatcher]="matcher"
+                      placeholder="Ex. pat@example.com">
+                      @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                        <mat-error>Please enter a valid email address</mat-error>
+                      }
+                      @if (emailFormControl.hasError('required')) {
+                        <mat-error>Email is <strong>required</strong></mat-error>
+                      }
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%;background-color: white;">
+                        <mat-label>Password</mat-label>
+                        <input 
+                        matInput 
+                        [type]="passwordinput" 
+                        name="password" 
+                        [formControl]="passwordControl" 
+                        [errorStateMatcher]="matcher" 
+                        placeholder="Eg. a-zA-Z!@#$%^&*1-9">
+                          <button 
+                            type="button" 
+                            matSuffix 
+                            mat-icon-button 
+                            aria-label="Clear" 
+                            (click)="
+                            passwordinput=='text'
+                            ?
+                            passwordinput='password'
+                            :
+                            passwordinput='text';
+                            passwordicon=='visibility'
+                            ?
+                            passwordicon='visibility_off'
+                            :
+                            passwordicon='visibility'">
+                            <div [class]="passwordicon">
+                            </div>
+                          </button>
+                          @if (passwordControl.hasError('required')) {
+                            <mat-error>Password is <strong>required</strong></mat-error>
+                          }
+                          @if (passwordControl.hasError('minlength')) {
+                            <mat-error>Password must be of <strong>8 digits</strong></mat-error>
+                          }
+                          @if (passwordControl.hasError('pattern')) {
+                            <mat-error>Password must be of <strong>alphanumeric </strong></mat-error>
+                          }
+                      </mat-form-field>
+    
+                      <button type="submit" mat-fab extended style="background-color: rgb(87, 87, 182);width: 100%;color: white; display: flex;justify-content: center; align-items: center;">
+                        <!-- <mat-icon>login</mat-icon>  -->
+                         <span class="loginbtn"></span>
+                          Login
+                      </button>
+                  </form>
+            }
+
+            @if(page == "FORGOT PASSWORD") {
+                <app-forgotpassword></app-forgotpassword>
+            }
+            
+        </mat-card-content>
+        <mat-card-actions style="width: 100%;display: flex;justify-content: center;">
+            <button 
+                mat-button 
+                (click)="page=='FORGOT PASSWORD'?page='LOGIN':page='FORGOT PASSWORD'">
+                {{page == "LOGIN" ? "Forgot Password" : "Login" }}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,54 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.website-name {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.error-code {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #3498db;
+    margin: 0;
+    line-height: 1;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    margin: 1rem 0;
+}
+
+.back-button {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+}
+
+.error-image {
+    width: 300px;
+    height: auto;
+    margin: 2rem 0;
+}

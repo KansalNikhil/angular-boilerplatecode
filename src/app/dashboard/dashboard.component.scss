@@ -1,0 +1,228 @@
+@use '../../styles.scss' as *;
+
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     height: 100vh;
+// }
+// header {
+//     background: #3f51b5;
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+// }
+// .logo {
+//     height: 40px;
+//     margin-right: 10px;
+// }
+// .sidenav {
+//     width: 250px;
+//     height: 100%;
+//     position: fixed;
+//     left: -250px;
+//     top: 0;
+//     background: #303f9f;
+//     padding: 15px;
+//     transition: 0.3s;
+//     color: white;
+// }
+// .sidenav.open {
+//     left: 0;
+// }
+// .content {
+//     flex: 1;
+//     padding: 20px;
+//     margin-left: 0;
+//     transition: margin-left 0.3s;
+// }
+// .content.shift {
+//     margin-left: 250px;
+// }
+// .footer {
+//     background: #3f51b5;
+//     color: white;
+//     text-align: center;
+//     padding: 10px;
+// }
+// .toggle-btn {
+//     background: none;
+//     border: none;
+//     color: white;
+//     font-size: 20px;
+//     cursor: pointer;
+//     margin-right: 10px;
+// }
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    background-color: transparent;
+}
+
+.container-header{
+    width: 100%;
+    background-color: transparent !important;
+    // padding: 5px !important;
+    // background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    // height: 3vh;
+}
+
+
+.container-content{
+    display: flex;
+    flex-direction: row;
+    height: 98vh;
+    width: 100vw;
+    overflow: auto;
+    background-color: transparent;
+    // background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255, 0.6));
+}
+
+
+// .header {
+//     background: #3f51b5;
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+//     margin-left: 20vw;
+//     transition: margin-left 0.3s;
+// }
+
+// .header.shift {
+//     background: #3f51b5;
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+//     margin-left: 0;
+//     transition: margin-left 0.3s;
+// }
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.sidenav {
+    width: 0;
+    max-height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: $base-color;
+    background: linear-gradient(225deg, rgb(0,0,0,0.3), rgba(0,0,0,0.6));
+    padding: 0px;
+    transition: width 0.3s;
+    color: white;
+    overflow: hidden;
+}
+
+.sidenav.open {
+    width: 15vw;
+    max-height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: $base-color;
+    background: linear-gradient(225deg, rgb(0,0,0,0.3), rgba(0,0,0,0.6));
+    padding: 0px;
+    transition: width 0.3s;
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    transition: margin-left 0.3s;
+    background-color: transparent;
+    background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255, 0.5));
+}
+
+.content.shift {
+    flex: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s;
+}
+.footer {
+    width:100vw;
+    background-color: transparent;
+    background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    color: white;
+    text-align: center;
+    height: 2vh;
+}
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1025) and (min-width: 769px) {
+    .sidenav {
+        width: 100vw;
+        position: fixed;
+        height: 100vh;
+        top:0;
+        left:0;
+    }
+
+    .sidenav.open {
+        overflow: hidden;
+        width: 50px !important;
+        max-width:50px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidenav {
+        width: 100vw;
+        position: fixed;
+        height: 100vh;
+        top:0;
+        left:0;
+    }
+    // .content {
+    //     margin-left: 0;
+    // }
+    .sidenav.open {
+        overflow: hidden;
+        width:0px;
+    }
+    .content.shift {
+        margin-left: 0;
+    }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mat-toolbar{
+    height: fit-content !important;
+}
