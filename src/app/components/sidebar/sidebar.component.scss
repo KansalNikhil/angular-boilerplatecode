@@ -43,6 +43,10 @@
     background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.2));
     background-color: $base-color;
     color:white;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .navlist{
@@ -53,4 +57,14 @@
     background-color: #ff9800 !important; /* Change to any color */
     color: white !important;
     font-weight: bold;
+}
+
+.sidebarclosebtn{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebarclosebtn{
+        display: block;
+    }
 }

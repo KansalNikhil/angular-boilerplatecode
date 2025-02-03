@@ -2,13 +2,25 @@
         style="height: fit-content !important;
                background-color: transparent;
                background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
-               border-radius: 10px;">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleNav()">
-      <div class="sidebaricon open" id="sidebarbtn"></div>
-    </button>
-    <span>{{title}}</span>
-    <span class="example-spacer"></span>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <div class="homeicon"></div>
-    </button> -->
+               border-radius: 10px;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;">
+    <span style="display: flex;align-items: center;">
+      <button mat-icon-button  (click)="toggleNav()">
+        <div class="sidebaricon open" id="sidebarbtn"></div>
+      </button>
+      <span style="font-size: medium;font-weight: 600;">{{title}}</span>
+    </span>
+    <span style="display: flex;align-items: center;">
+      <span style="font-size: small;font-weight: 600;">{{username}}</span>
+      <button mat-icon-button (click)="logout()" >
+        <div class="logouticon"></div>
+      </button>
+    </span>
   </mat-toolbar>
+
+
+  <!-- aria-label="Example icon-button with menu icon" -->
+
+  <!-- aria-label="Example icon-button with share icon" -->

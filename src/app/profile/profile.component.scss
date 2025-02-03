@@ -1,7 +1,32 @@
-// .example-spacer {
-//     flex: 1 1 auto;
-//   }
+@use '../../styles.scss' as *;
 
 .mat-toolbar{
     height: fit-content;
+}
+
+.profile-component{
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    padding: 1%;
+    flex-grow: 1;
+    justify-content: center;
+    // align-items: center;
+    overflow: auto;
+}
+
+.profile-filter-container{
+    // display: flex;
+    // flex-direction: row;
+    width: 100%;
+    // background-color: $base-color !important;
+}
+
+.profile-filter-header{
+    // display: flex;
+    // flex-direction: row;
+    // width: 100%;
+    color: white !important;
+    background-color: $base-color !important;
+    border: 50px !important;
 }

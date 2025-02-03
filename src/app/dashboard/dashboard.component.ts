@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit{
   secondLastSegment: string = '';
 
   pagename = 'DASHBOARD';
+  username = "user"
 
   constructor(
     private router: Router, 

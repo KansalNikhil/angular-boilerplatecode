@@ -31,6 +31,14 @@ export class SidebarComponent implements OnInit{
     // console.log(this.userData);
   }
 
+  toggleNav() {
+    const sidenav = document.getElementById('sidenav');
+    const sidebartbn = document.getElementById('sidebarbtn');
+    // console.log(sidenav);
+    sidenav?.classList.toggle('open');
+    sidebartbn?.classList.toggle('open');
+  }
+
   logout() {
     this.router.navigate(['/']);
   }

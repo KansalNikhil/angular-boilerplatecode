@@ -1,4 +1,10 @@
 <div class="sidenav-component">
+    <button 
+        mat-icon-button 
+        class="closeicon sidebarclosebtn"
+        (click)="toggleNav()" 
+        style="position: absolute;top:5px; right: 5px;z-index: 50;background-color: white; border-radius: 15%;">
+    </button>
     <mat-card class="sidenav-card" appearance="outlined">
         <mat-card-header class="sidenav-card-header">
             <div mat-card-avatar class="sidenav-header-image"></div>
@@ -32,11 +38,11 @@
             ariaCurrentWhenActive="page"
             protected-label-text-size="large"
             >
-                <div class="usericon"></div>
+                <div class="profileicon"></div>
                 Profile
         </a>
 
-        <button 
+        <!-- <button 
             mat-fab 
             extended 
             class="navbtns"
@@ -44,7 +50,7 @@
             >
                 <div class="logouticon"></div>
                 Log Out
-    </button>
+        </button> -->
     </nav>
 </div>
 
