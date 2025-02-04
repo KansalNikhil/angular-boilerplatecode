@@ -3,8 +3,8 @@ import { environment } from '../environments/environment';
 export const BASE_URL = environment.apiUrl;
 
 //AUTH URLs
-export const LOGIN_URL = `${BASE_URL}/auth/login`;
-export const LOGOUT_URL = `${BASE_URL}/auth/logout`;
+export const LOGIN_URL = `${BASE_URL}/login/login`;
+export const LOGOUT_URL = `${BASE_URL}/login/logout`;
 export const FORGOT_PASSWORD = `${BASE_URL}/auth/forgotpassword`;
 export const CHANGE_PASSWORD = `${BASE_URL}/auth/resetpassword`;
 

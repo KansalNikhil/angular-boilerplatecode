@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { apptitle } from '../../../utils/appsettings';
+import {LOGOUT_URL} from '../../../utils/constanturls';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { HttpService } from '../../http-service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ export class HeaderComponent {
   @Input() username!: string;
 
   constructor(
-       private router: Router
+       private router: Router,
+       private httpService: HttpService
   ) {
   }
 
@@ -28,6 +30,32 @@ export class HeaderComponent {
   }
 
   logout() {
+    var item = sessionStorage.getItem('userdata');
+    console.log(item);
+    if(item != null){
+      var userid = JSON.parse(item!);
+      if(userid.empuid != null || userid.empuid != ""){
+        this.httpService.post<string|null>(LOGOUT_URL, { empuid: userid.empuid}).subscribe(
+          {
+            next:(response) => {
+              console.log(response);
+              if(response.statuscode == 200){
+                console.log(response.message);
+              }
+              else{
+                console.log(response.error);
+              }
+            },
+            error:(error) => {
+              console.log(error);
+              alert(error.error.message);
+            }
+          }
+        );
+      }
+    }    
+    sessionStorage.removeItem('userdata');
+    localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
 }

@@ -4,6 +4,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { RouterOutlet} from '@angular/router';
 import { HeaderComponent } from "../components/header/header.component";
 import { ActivatedRoute, Router } from '@angular/router';
+import { pages } from '../models/auth-model';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,9 @@ export class DashboardComponent implements OnInit{
   secondLastSegment: string = '';
 
   pagename = 'DASHBOARD';
-  username = "user"
+  username = "user";
+  role = "";
+  pages : pages|null = null;
 
   constructor(
     private router: Router, 
@@ -23,10 +26,20 @@ export class DashboardComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+    var item = sessionStorage.getItem('userdata');
+    console.log(item);
+    if(item != null){
+      var userid = JSON.parse(item!);
+      this.username = userid.empuid;
+    }
+    else{
+      this.router.navigate(['/']);
+    } 
+
     this.router.events.subscribe(() => {
       const urlSegments = this.router.url.split('/').filter(segment => segment);
       this.pagename = urlSegments[urlSegments.length - 1] == '' ? 'DASHBOARD' : 
-      urlSegments[urlSegments.length - 1]?.toLowerCase() == 'portal' ? 'DASHBOARD' : urlSegments[urlSegments.length - 1].toUpperCase();
+      urlSegments[urlSegments.length - 1]?.toLowerCase() == 'portal' ? 'DASHBOARD' : urlSegments[urlSegments.length - 1]?.toUpperCase();
       this.secondLastSegment = urlSegments[urlSegments.length - 2] || '';
     });
   }

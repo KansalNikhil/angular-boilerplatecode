@@ -23,6 +23,7 @@ import { AuthService } from '../auth-service';
 import { HttpService } from '../http-service';
 import { LOGIN_URL } from '../../utils/constanturls';
 import { apptitle } from '../../utils/appsettings';
+import { UserData } from '../models/auth-model';
 import { error } from 'console';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit {
   passwordicon:string = 'visibility';
   page:string = "LOGIN";
   appTitle:string = apptitle;
+  user: UserData | null |undefined = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -95,7 +97,7 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm.value.password);
 
       const loginRequest: LoginRequest = {
-        userid: this.loginForm.value.userid,
+        loginid: this.loginForm.value.userid,
         password: this.loginForm.value.password
       };
       
@@ -111,16 +113,35 @@ export class LoginComponent implements OnInit {
       //   }
       // });
 
-      // this.httpService.post(LOGIN_URL, loginRequest).subscribe({
-      //   next:(response) => {
-      //     console.log(response);
-      //   },
-      //   error:(error) => {
-      //     console.log(error);
-      //   }
-      // })
+      this.httpService.post<{ userdata: UserData, code:string, token:string }>(LOGIN_URL, loginRequest).subscribe({
+        next:(response) => {
+          console.log(response);
+          if(response.statuscode == 200){
+            if(response.data?.code == "1"){
+              this.user = response.data?.userdata;
+              // localStorage.setItem('userdata', JSON.stringify(this.user));
+              sessionStorage.setItem('userdata', JSON.stringify(this.user));
+              localStorage.setItem('token', response.data.token);
+              this.router.navigate(['/portal']);
+            }
+            else{
+              sessionStorage.removeItem('userdata');
+              localStorage.removeItem('token');
+              // localStorage.removeItem('userdata');
+              alert(response.message);
+            }
+          }
+          else{
+            console.log(response.error);
+          }
+        },
+        error:(error) => {
+          console.log(error);
+          alert(error.error.message);
+        }
+      })
 
-      this.router.navigate(['/portal']);
+      // this.router.navigate(['/portal']);
     }
 
     // if (this.loginForm.valid) {

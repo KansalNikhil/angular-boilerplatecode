@@ -1,5 +1,5 @@
 export interface LoginRequest {
-    userid: string;
+    loginid: string;
     password: string;
   }
   
@@ -8,6 +8,7 @@ export interface LoginRequest {
     username: string;
     email: string;
     role: string;
+    pages: pages[];
     // add other user properties as needed
   }
   
@@ -16,3 +17,8 @@ export interface LoginRequest {
     userData: UserData;
   }
   
+  export interface pages{
+    pageid: string;
+    pagename: string;
+    pageurl: string;
+  }
