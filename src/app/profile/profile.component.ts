@@ -8,6 +8,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {Sort, MatSortModule} from '@angular/material/sort';
 import { Dessert } from '../models/api-response';
+import * as XLSX from 'xlsx';
+// import { saveAs } from 'file-saver';
+// import * as FileSaver from 'file-saver';
+import saveAs from 'file-saver';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-profile',
@@ -19,15 +24,15 @@ import { Dessert } from '../models/api-response';
     MatSelectModule,
     MatExpansionModule,
     MatCardModule,
-    MatSortModule
+    MatSortModule,
+    MatTooltipModule
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
   readonly panelOpenState = signal(false);
-
-
+  value:string|null = null;
 
 
   desserts: Dessert[] = [
@@ -80,16 +85,17 @@ export class ProfileComponent {
     });
   }
 
-  // downloadExcel() {
-  //   const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.desserts);
-  //   const workbook: XLSX.WorkBook = XLSX.utils.book_new();
-  //   XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  downloadExcel() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.desserts);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
 
-  //   // Write file and trigger download
-  //   const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-  //   const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
-  //   saveAs(data, 'table_data.xlsx');
-  // }
+    // Write file and trigger download
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    saveAs(data, 'table_data.xlsx');
+    // FileSaver.saveAs(data, 'table_data.xlsx');
+  }
 
 }
 

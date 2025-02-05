@@ -290,8 +290,12 @@ mat-option{
 
 .exceldownloadicon {
   background-image: url('../public/images/avexms3z4.png');
-  background-size: cover;
-  margin: 0px !important;
-  // width:24px;
-  // height: 24px; 
+  background-size: contain;
+  margin: 0px !important; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  // height: 70px !important;
+  width: 48px !important;
 }

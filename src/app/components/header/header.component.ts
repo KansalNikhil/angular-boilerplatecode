@@ -4,10 +4,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { HttpService } from '../../http-service';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-header',
-  imports: [MatButtonModule,MatToolbarModule],
+  imports: [MatButtonModule,MatToolbarModule,MatTooltipModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
