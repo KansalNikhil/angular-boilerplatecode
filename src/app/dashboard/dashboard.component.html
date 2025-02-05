@@ -30,7 +30,9 @@
             <div class="container-header">
                 <app-header [title]="pagename" [username]="username"></app-header>
             </div>
-            <router-outlet></router-outlet>
+            <div style="display: flex;flex-direction: column;max-height: 90vh;overflow: hidden;">
+                <router-outlet></router-outlet>
+            </div>
         </main>
     </div>
     

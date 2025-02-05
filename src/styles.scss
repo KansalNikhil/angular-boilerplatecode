@@ -43,6 +43,152 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.mat-toolbar{
+  height: fit-content !important;
+}
+
+
+// Profile Page Styles start
+
+.mat-expansion-panel-body {
+  padding: 10px 5px 5px 5px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.mat-mdc-form-field{
+  display: flex !important;
+  flex:1 !important;
+  min-width: 150px !important;
+  // max-width: 200px;
+}
+
+.profile-card .mat-mdc-card-header{
+  padding: 5px !important;
+}
+
+.profile-card .mat-mdc-card-content{
+  padding:  5px !important;
+  max-height: 65vh !important;
+  overflow: auto !important;
+}
+
+.profile-sortable{
+  border-collapse: collapse !important;
+  border: 1px solid black !important;
+  width:100% !important;
+  overflow: hidden !important;
+}
+
+.profile-sortable th{
+  background-color: $base-color !important;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  color: white !important;
+  border: 1px solid black !important;
+  text-align: center !important;
+  padding: 6px 3px !important;
+}
+
+.profile-sortable td{
+  background-color: $base-color !important;
+  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.9));
+  color: rgb(0, 0, 0) !important;
+  border: 1px solid black !important;
+  text-align: center !important;
+  padding: 3px !important;
+}
+
+.profile-card-content{
+  overflow: auto;
+
+}
+
+.mat-toolbar{
+    height: fit-content;
+}
+
+.profile-component{
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    // padding: 1%;
+    flex-grow: 1;
+    justify-content: center;
+    // align-items: center;
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.profile-filter-container{
+    // display: flex;
+    // flex-direction: row;
+    width: 100%;
+    // background-color: $base-color !important;
+}
+
+.profile-filter-header{
+    // display: flex;
+    // flex-direction: row;
+    // width: 100%;
+    color: white !important;
+    background-color: $base-color !important;
+    border: 50px !important;
+    padding: 0 12px;
+}
+
+mat-option{
+    font-size: small !important;
+    overflow: auto;
+}
+
+.profilesubmitbtn{
+    width: 100% !important;
+    max-width: 200px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 40px;
+    border-radius: 4px;
+    margin-bottom: 10px !important;
+    background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+    background-color: $base-color;
+    color:white;
+    text-overflow: ellipsis;
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+@media screen and (max-height: 600px) {
+  .profile-card .mat-mdc-card-content{
+    max-height: 55vh !important;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .profile-card .mat-mdc-card-content{
+    max-height: 45vh !important;
+  }
+} 
+
+//Profile Page Styles end
 .visibility {
   background-image: url('../public/images/visibility_24dp_000000_FILL0_wght400_GRAD0_opsz24.png');
   background-size: cover;
@@ -55,6 +201,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-size: cover;
   width:24px;
   height: 24px; 
+}
+
+.submiticon {
+  background-image: url('../public/images/send_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png');
+  background-size: cover;
+  width:24px;
+  height: 24px; 
+}
+
+.companyicon {
+  background-image: url('../public/images/company_logo.png');
+  background-size: cover;
+  margin: 2% !important;
+  width: 110px !important;
+  border-radius: 0px !important;
+}
+
+.loginbtn{
+  background-image: url('../public/images/login_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png');
+  background-size: cover;
+  width:24px;
+  height: 24px;
+}
+
+.login-header-image {
+  background-image: url('../public/images/favicon.ico');
+  background-size: cover;
 }
 
 .homeicon {
@@ -85,6 +258,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 24px; 
 }
 
+.sidenav-header-image {
+  // background-image: url('./../../../public/images/favicon.ico');
+  background-image: url('../public/images/company_logo.png');
+  background-size: cover;
+  // margin: 2% !important;
+  // width: 110px !important;
+  // border-radius: 0px;  
+}
+
 .closeicon {
   background-image: url('../public/images/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.png');
   background-size: cover;
@@ -104,4 +286,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-size: cover;
   width:24px;
   height: 24px; 
+}
+
+.exceldownloadicon {
+  background-image: url('../public/images/avexms3z4.png');
+  background-size: cover;
+  margin: 0px !important;
+  // width:24px;
+  // height: 24px; 
 }

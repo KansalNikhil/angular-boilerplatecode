@@ -20,21 +20,6 @@
     align-items: center;
     padding: 1% !important;
 }
-  
-.sidenav-header-image {
-    // background-image: url('./../../../public/images/favicon.ico');
-    background-image: url('./../../../../public/images/company_logo.png');
-    background-size: cover;
-    margin: 2% !important;
-    width: 110px !important;
-    border-radius: 0px;
-    // font-size: xx-large;
-    // color: red;
-    // font-weight: 900;
-    // font-style: normal;
-    // text-align: center; 
-    // margin-bottom: 1vh;   
-}
 
 .navbtns{
     width: 100% !important;
@@ -46,7 +31,7 @@
     background-color: $base-color;
     color:white;
     text-overflow: ellipsis;
-    display: flex;
+    // display: flex;
     justify-content: flex-start;
     align-items: center;
     font-size: small;

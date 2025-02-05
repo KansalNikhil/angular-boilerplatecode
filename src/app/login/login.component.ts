@@ -113,35 +113,36 @@ export class LoginComponent implements OnInit {
       //   }
       // });
 
-      this.httpService.post<{ userdata: UserData, code:string, token:string }>(LOGIN_URL, loginRequest).subscribe({
-        next:(response) => {
-          console.log(response);
-          if(response.statuscode == 200){
-            if(response.data?.code == "1"){
-              this.user = response.data?.userdata;
-              // localStorage.setItem('userdata', JSON.stringify(this.user));
-              sessionStorage.setItem('userdata', JSON.stringify(this.user));
-              localStorage.setItem('token', response.data.token);
-              this.router.navigate(['/portal']);
-            }
-            else{
-              sessionStorage.removeItem('userdata');
-              localStorage.removeItem('token');
-              // localStorage.removeItem('userdata');
-              alert(response.message);
-            }
-          }
-          else{
-            console.log(response.error);
-          }
-        },
-        error:(error) => {
-          console.log(error);
-          alert(error.error.message);
-        }
-      })
+      // this.httpService.post<{ userdata: UserData, code:string, token:string }>(LOGIN_URL, loginRequest).subscribe({
+      //   next:(response) => {
+      //     console.log(response);
+      //     if(response.statuscode == 200){
+      //       if(response.data?.code == "1"){
+      //         this.user = response.data?.userdata;
+      //         // localStorage.setItem('userdata', JSON.stringify(this.user));
+      //         sessionStorage.setItem('userdata', JSON.stringify(this.user));
+      //         localStorage.setItem('token', response.data.token);
+      //         this.router.navigate(['/portal']);
+      //       }
+      //       else{
+      //         sessionStorage.removeItem('userdata');
+      //         localStorage.removeItem('token');
+      //         // localStorage.removeItem('userdata');
+      //         alert(response.message);
+      //       }
+      //     }
+      //     else{
+      //       console.log(response.error);
+      //     }
+      //   },
+      //   error:(error) => {
+      //     console.log(error);
+      //     alert(error.error.message);
+      //   }
+      // })
 
-      // this.router.navigate(['/portal']);
+      sessionStorage.setItem('userdata', JSON.stringify({empuid:"123"}));
+      this.router.navigate(['/portal']);
     }
 
     // if (this.loginForm.valid) {

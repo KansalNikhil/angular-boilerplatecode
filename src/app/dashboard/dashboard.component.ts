@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { RouterOutlet} from '@angular/router';
 import { HeaderComponent } from "../components/header/header.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { pages } from '../models/auth-model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,33 +16,43 @@ import { pages } from '../models/auth-model';
 export class DashboardComponent implements OnInit{
   secondLastSegment: string = '';
 
-  pagename = 'DASHBOARD';
+  pagename = '';
   username = "user";
   role = "";
   pages : pages|null = null;
 
   constructor(
     private router: Router, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {}
 
   ngOnInit(): void {
-    var item = sessionStorage.getItem('userdata');
-    console.log(item);
-    if(item != null){
-      var userid = JSON.parse(item!);
-      this.username = userid.empuid;
-    }
-    else{
-      this.router.navigate(['/']);
-    } 
+      
+      if (this.platformId === 'browser') {
+        var item = sessionStorage.getItem('userdata');
+        console.log(item);
+        if(item != null){
+          var userid = JSON.parse(item!);
+          this.username = userid.empuid;
+        }
+        else{
+          this.router.navigate(['/']);
+        } 
+      } else {
+        
+      }
 
+      const urlSegments = this.router.url.split('/').filter(segment => segment);
+      this.pagename = urlSegments[urlSegments.length - 1] == '' ? 'DASHBOARD' : 
+      urlSegments[urlSegments.length - 1]?.toLowerCase() == 'portal' ? 'DASHBOARD' : urlSegments[urlSegments.length - 1]?.toUpperCase();
+      this.secondLastSegment = urlSegments[urlSegments.length - 2] || '';
     this.router.events.subscribe(() => {
       const urlSegments = this.router.url.split('/').filter(segment => segment);
       this.pagename = urlSegments[urlSegments.length - 1] == '' ? 'DASHBOARD' : 
       urlSegments[urlSegments.length - 1]?.toLowerCase() == 'portal' ? 'DASHBOARD' : urlSegments[urlSegments.length - 1]?.toUpperCase();
       this.secondLastSegment = urlSegments[urlSegments.length - 2] || '';
-    });
+    });    
   }
 
   toggleNav() {

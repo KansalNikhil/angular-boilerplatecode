@@ -1,32 +1,56 @@
 @use '../../styles.scss' as *;
 
-.mat-toolbar{
-    height: fit-content;
-}
+// .mat-toolbar{
+//     height: fit-content;
+// }
 
-.profile-component{
-    display: flex;
-    flex-direction: column;
-    // width: 100%;
-    padding: 1%;
-    flex-grow: 1;
+// .profile-component{
+//     display: flex;
+//     flex-direction: column;
+//     // width: 100%;
+//     padding: 1%;
+//     flex-grow: 1;
+//     justify-content: center;
+//     // align-items: center;
+//     overflow: auto;
+// }
+
+// .profile-filter-container{
+//     // display: flex;
+//     // flex-direction: row;
+//     width: 100%;
+//     // background-color: $base-color !important;
+// }
+
+// .profile-filter-header{
+//     // display: flex;
+//     // flex-direction: row;
+//     // width: 100%;
+//     color: white !important;
+//     background-color: $base-color !important;
+//     border: 50px !important;
+//     padding: 0 12px;
+// }
+
+// mat-option{
+//     font-size: small !important;
+//     overflow: auto;
+// }
+
+.profilesubmitbtn{
+    width: 100% !important;
+    max-width: 200px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 40px;
+    border-radius: 4px;
+    margin-bottom: 10px !important;
+    background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+    background-color: $base-color;
+    color:white;
+    text-overflow: ellipsis;
+    // display: flex;
     justify-content: center;
-    // align-items: center;
-    overflow: auto;
-}
-
-.profile-filter-container{
-    // display: flex;
-    // flex-direction: row;
-    width: 100%;
-    // background-color: $base-color !important;
-}
-
-.profile-filter-header{
-    // display: flex;
-    // flex-direction: row;
-    // width: 100%;
-    color: white !important;
-    background-color: $base-color !important;
-    border: 50px !important;
+    align-items: center;
+    font-size: small;
 }

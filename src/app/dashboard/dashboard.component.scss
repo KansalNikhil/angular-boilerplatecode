@@ -67,6 +67,7 @@
 .container-header{
     width: 100%;
     background-color: transparent !important;
+    max-height: 8vh;
     // padding: 5px !important;
     // background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
     // height: 3vh;
@@ -78,7 +79,7 @@
     flex-direction: row;
     height: 98vh;
     width: 100vw;
-    overflow: auto;
+    // overflow: auto;
     background-color: transparent;
     // background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255, 0.6));
 }
@@ -118,7 +119,7 @@
     justify-content: start;
     align-items: center;
     background-color: $base-color;
-    background: linear-gradient(225deg, rgb(0,0,0,0.8), rgba(0,0,0,0.6));
+    background: linear-gradient(225deg, rgb(0,0,0,0.8), rgba(0,0,0,0.8));
     padding: 0px;
     transition: width 0.3s;
     color: white;
@@ -143,10 +144,11 @@
 .content {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1;
     transition: margin-left 0.3s;
     background-color: transparent;
     background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255, 0.5));
+    overflow: auto;
 }
 
 .content.shift {
@@ -161,6 +163,7 @@
     color: white;
     text-align: center;
     height: 2vh;
+    overflow: auto;
 }
 .toggle-btn {
     background: none;
@@ -210,8 +213,8 @@
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 5px !important;
+    height: 5px !important;
 }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
