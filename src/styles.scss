@@ -4,6 +4,7 @@
 @use '@angular/material' as mat;
 
 $base-color: #436eef;
+// $base-color:   #a32e06;
 
 @font-face {
   font-family: 'Roboto';
@@ -80,13 +81,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   // max-width: 200px;
 }
 
+.profile-card-footer{
+  display: flex !important;
+  padding: 5px;
+  justify-content: center !important;
+}
+
+.profile-card-footer button{
+  border: 0px;
+  background-color: transparent;
+}
+
 .profile-card .mat-mdc-card-header{
   padding: 5px !important;
 }
 
 .profile-card .mat-mdc-card-content{
   padding:  5px !important;
-  max-height: 65vh !important;
+  max-height: 70vh !important;
   overflow: auto !important;
 }
 
@@ -94,7 +106,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-collapse: collapse !important;
   border: 1px solid black !important;
   width:100% !important;
-  overflow: hidden !important;
+  // overflow: hidden !important;
 }
 
 .profile-sortable th{
@@ -104,6 +116,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: 1px solid black !important;
   text-align: center !important;
   padding: 6px 3px !important;
+  top:-6px !important;
 }
 
 .profile-sortable td{
@@ -153,6 +166,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 0 12px;
 }
 
+// .profile-search-bar .mat-mdc-form-field{
+//   display: block !important;
+//   flex: none !important;
+// }
+
+.mdc-text-field--filled{
+  background-color: $base-color !important;
+  background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.8));
+}
+
+.profile-search-bar .mat-mdc-form-field-subscript-wrapper{
+  display: none !important;
+}
+
 mat-option{
     font-size: small !important;
     overflow: auto;
@@ -178,13 +205,13 @@ mat-option{
 
 @media screen and (max-height: 600px) {
   .profile-card .mat-mdc-card-content{
-    max-height: 55vh !important;
+    max-height: 50vh !important;
   }
 }
 
 @media screen and (max-height: 400px) {
   .profile-card .mat-mdc-card-content{
-    max-height: 45vh !important;
+    max-height: 40vh !important;
   }
 } 
 
@@ -298,4 +325,26 @@ mat-option{
   background-position-x: center;
   // height: 70px !important;
   width: 48px !important;
+}
+
+.searchicon {
+  background-image: url('../public/images/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.png');
+  background-size: cover;
+  width:24px;
+  height: 24px; 
+}
+
+.leftarrowicon {
+  background-image: url('../public/images/leftarrow.png');
+  background-size: cover;
+  width:24px;
+  height: 24px; 
+}
+
+.rightarrowicon {
+  background-image: url('../public/images/leftarrow.png');
+  background-size: cover;
+  width:24px;
+  height: 24px; 
+  rotate: 180deg;
 }

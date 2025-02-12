@@ -6,10 +6,14 @@ import { HeaderComponent } from "../components/header/header.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { pages } from '../models/auth-model';
 import { isPlatformBrowser } from '@angular/common';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingService } from '../loading.service';
+
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SidebarComponent, RouterOutlet, FooterComponent, HeaderComponent],
+  imports: [SidebarComponent, RouterOutlet, FooterComponent, HeaderComponent, MatProgressBarModule, MatProgressSpinnerModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -20,12 +24,19 @@ export class DashboardComponent implements OnInit{
   username = "user";
   role = "";
   pages : pages|null = null;
+  isLoading = false;
+  isSubmitting = false;
 
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
-    @Inject(PLATFORM_ID) private platformId: any
-  ) {}
+    @Inject(PLATFORM_ID) private platformId: any,
+    private loadingService: LoadingService
+  ) {
+    this.loadingService.isLoading$.subscribe((value) => {
+      this.isLoading = value;
+    });
+  }
 
   ngOnInit(): void {
       

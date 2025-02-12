@@ -1,1 +1,36 @@
 <router-outlet />
+
+
+@if(isLoading){
+    <div style="display: flex;
+        justify-content: center;
+        align-items: start;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1000;
+        padding: 10px;
+        box-sizing: border-box;
+        background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7));">
+        <mat-progress-bar mode="query"></mat-progress-bar>
+    </div>
+}
+
+@if(isSubmitting){
+    <div style="display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1000;
+        box-sizing: border-box;
+        top:0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8))
+        ">
+        <mat-spinner>Loading</mat-spinner>
+        <span style="color: white;">Loading...</span>
+    </div>
+}
